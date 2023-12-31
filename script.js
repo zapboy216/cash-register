@@ -1,5 +1,6 @@
 // Prices and cash denominations
 const PRICE = 19.5;
+
 const CASH_IN_DRAWER = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
@@ -69,4 +70,49 @@ const processCashRegister = () => {
     let count = 0;
     while (amount > 0 && changeDue >= denominations[index]) {
       amount -= denominations[index];
-      changeDue = parseFloat((changeDue - denominations
+      changeDue = parseFloat((changeDue - denominations[index]).toFixed(2));
+      count++;
+    }
+    if (count > 0) {
+      result.change.push([denomination, count * denominations[index]]);
+    }
+  });
+
+  if (changeDue > 0) {
+    formatAndDisplayResults('INSUFFICIENT_FUNDS', []);
+    return;
+  }
+
+  formatAndDisplayResults(result.status, result.change);
+  updateCashDrawer(result.change);
+};
+
+// Event handlers
+purchaseButton.addEventListener('click', processCashRegister);
+
+cashInputElement.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    processCashRegister();
+  }
+});
+
+// Update UI with cash drawer status
+const updateCashDrawer = (change) => {
+  // Update cash drawer amounts based on change given
+  if (change) {
+    change.forEach(([denomination, amount]) => {
+      let drawerEntry = CASH_IN_DRAWER.find(entry => entry[0] === denomination);
+      if (drawerEntry) {
+        drawerEntry[1] -= amount;
+      }
+    });
+  }
+
+  cashInputElement.value = '';
+  priceScreenElement.textContent = `Total: $${PRICE.toFixed(2)}`;
+  cashDrawerDisplayElement.innerHTML = '<p><strong>Change in drawer:</strong></p>' +
+    CASH_IN_DRAWER.map(([denomination, amount]) => `<p>${denomination}: $${amount.toFixed(2)}</p>`).join('');
+};
+
+// Initial UI update
+updateCashDrawer();
