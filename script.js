@@ -28,9 +28,15 @@ function calculateChange(price, cash, cid) {
     let changeArray = cid.reverse().map(elem => {
         let amount = 0;
         const value = {
-            "PENNY": 0.01, "NICKEL": 0.05, "DIME": 0.10,
-            "QUARTER": 0.25, "ONE": 1.00, "FIVE": 5.00,
-            "TEN": 10.00, "TWENTY": 20.00, "ONE HUNDRED": 100.00
+            "ONE HUNDRED": 100.00,
+            "TWENTY": 20.00,
+            "TEN": 10.00,
+            "FIVE": 5.00,
+            "ONE": 1.00,
+            "QUARTER": 0.25,
+            "DIME": 0.10,
+            "NICKEL": 0.05,
+            "PENNY": 0.01
         }[elem[0]];
 
         while (change >= value && elem[1] > 0) {
