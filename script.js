@@ -1,5 +1,5 @@
 // Prices and cash denominations
-const PRICE = 3.26;
+const PRICE = 19.5;
 const CASH_IN_DRAWER = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
