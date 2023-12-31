@@ -1,5 +1,5 @@
 document.getElementById('purchase-btn').addEventListener('click', function() {
-    const price = 19.5; // Example price, can be dynamic
+    const price =; // Example price, can be dynamic
     const cash = parseFloat(document.getElementById('cash').value);
     let cid = [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]; // Example cash in drawer
     const changeDue = document.getElementById('change-due');
