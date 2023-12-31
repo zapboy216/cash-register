@@ -1,12 +1,17 @@
-// Listener for the Purchase button
-document.getElementById('purchase-btn').addEventListener('click', function() {
+     // Listener for the Purchase button
+    document.getElementById('purchase-btn').addEventListener('click', function() {
     // You can adjust these values as needed
-    const price = 19.5; // Example item price
+    const price = 19.5;       // Example item price
     const cash = parseFloat(document.getElementById('cash').value);
     const cid = [
         ["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25],
         ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]
     ];
+
+    if (cash < price) {
+        alert("Customer does not have enough money to purchase the item");
+        return;
+    }
 
     // Call function to get the change status and amount
     const { status, change } = getChangeStatus(price, cash, cid);
