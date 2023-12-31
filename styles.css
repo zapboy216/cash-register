@@ -34,7 +34,7 @@ input[type="number"], button {
 /* Unique styling for the change drawer */
 #change-due {
     background-color: #eef;
-    border: 2px dashed #aac;
+    border: 3px dashed #aac;
     padding: 15px;
     margin-top: 20px;
     border-radius: 6px;
@@ -46,7 +46,7 @@ input[type="number"], button {
 #purchase-btn {
     background-color: #4CAF50;
     color: white;
-    border: 2px solid #151515;
+    border: 1px solid #151515;
     cursor: pointer;
 }
 
