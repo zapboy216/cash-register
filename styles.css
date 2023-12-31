@@ -12,7 +12,7 @@ body, html {
 /* Styling for the main container */
 .container {
     width: 60%;
-    max-width: 500px;
+    max-width: 700px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -27,7 +27,7 @@ input[type="number"], button {
     margin: 10px 0;
     border: 1px solid #151515;
     border-radius: 4px;
-    font-size: 1.2em; /* Larger text */
+    font-size: 1.5em; /* Larger text */
 }
 
 /* Unique styling for the change drawer */
@@ -37,7 +37,7 @@ input[type="number"], button {
     padding: 15px;
     margin-top: 20px;
     border-radius: 6px;
-    font-size: 1.1em; /* Slightly larger text for the change due area */
+    font-size: 1.5em; /* Slightly larger text for the change due area */
     color: #333;
 }
 
