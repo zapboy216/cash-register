@@ -9,4 +9,4 @@
 
 
 
-this is a app created for the freecodecamp challenge
+this is a app created for the freecodecamp challenge in javascript certification
