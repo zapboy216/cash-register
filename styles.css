@@ -1,8 +1,14 @@
-#app {
+body {
+    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
 }
 
 #cash {
@@ -13,5 +19,4 @@
     margin-top: 10px;
     border: 1px solid #ddd;
     padding: 10px;
-    width: 300px;
 }
