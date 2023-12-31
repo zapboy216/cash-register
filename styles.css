@@ -1,0 +1,17 @@
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#cash {
+    margin-bottom: 10px;
+}
+
+#change-due {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 300px;
+}
