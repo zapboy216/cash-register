@@ -1,3 +1,10 @@
+// DOM element references
+const displayChangeDue = document.getElementById('change-due'); // Display area for change due
+const cash = document.getElementById('cash'); // Input field for cash received
+const purchaseBtn = document.getElementById('purchase-btn'); // Button for initiating purchase
+const priceScreen = document.getElementById('price-screen'); // Display area for price
+const cashDrawerDisplay = document.getElementById('cash-drawer-display'); // Display area for cash drawer status
+
 // Initial price of the item
 let price = 19.5;
 
@@ -13,13 +20,6 @@ let cid = [
   ['TWENTY', 60],
   ['ONE HUNDRED', 100]
 ];
-
-// DOM element references
-const displayChangeDue = document.getElementById('change-due'); // Display area for change due
-const cash = document.getElementById('cash'); // Input field for cash received
-const purchaseBtn = document.getElementById('purchase-btn'); // Button for initiating purchase
-const priceScreen = document.getElementById('price-screen'); // Display area for price
-const cashDrawerDisplay = document.getElementById('cash-drawer-display'); // Display area for cash drawer status
 
 // Function to format and display the results
 const formatResults = (status, change) => {
