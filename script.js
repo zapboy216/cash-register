@@ -58,19 +58,13 @@ function calculateChange(price, cash, cid) {
 
 function formatChangeOutput(change) {
     if (typeof change === 'string') {
-        // If the change is a string, it's a status message
         return change;
     }
 
-    let formattedChange = change.Status + ' ';
-    delete change.Status; // Remove the status from the change object
-
-    for (const [denomination, amount] of Object.entries(change)) {
-        // Format each denomination and its amount
-        formattedChange += `${denomination}: $${amount.toFixed(2)} `;
-    }
-
-    return formattedChange.trim();
+    return change.reduce((acc, curr) => {
+        acc += ` ${curr[0]}: $${curr[1].toFixed(2)}`;
+        return acc;
+    }, "Status: OPEN");
 }
 
 
