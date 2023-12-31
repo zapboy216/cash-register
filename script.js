@@ -6,62 +6,54 @@ document.getElementById('purchase-btn').addEventListener('click', function() {
 
     if (cash < price) {
         alert('Customer does not have enough money to purchase the item');
-    } else if (cash === price) {
-        changeDue.textContent = 'No change due - customer paid with exact cash';
     } else {
         let change = calculateChange(price, cash, cid);
         changeDue.textContent = formatChangeOutput(change);
     }
 });
 
+
 function calculateChange(price, cash, cid) {
-    const currencyUnit = {
-        "PENNY": 0.01,
-        "NICKEL": 0.05,
-        "DIME": 0.1,
-        "QUARTER": 0.25,
-        "ONE": 1,
-        "FIVE": 5,
-        "TEN": 10,
-        "TWENTY": 20,
-        "ONE HUNDRED": 100
-    };
+    if (cash === price) {
+        return "No change due - customer paid with exact cash";
+    }
 
     let change = cash - price;
-    let changeArray = [];
-    let totalCID = 0;
-    cid.forEach(elem => totalCID += elem[1]);
-    totalCID = totalCID.toFixed(2);
-
+    let totalCID = cid.reduce((sum, curr) => sum + curr[1], 0);
+    
     if (totalCID < change) {
         return "Status: INSUFFICIENT_FUNDS";
-    } else if (totalCID == change) {
-        return "Status: CLOSED";
-    } else {
-        cid = cid.reverse();
-        for (let elem of cid) {
-            let temp = [elem[0], 0];
-            while (change >= currencyUnit[elem[0]] && elem[1] > 0) {
-                temp[1] += currencyUnit[elem[0]];
-                elem[1] -= currencyUnit[elem[0]];
-                change -= currencyUnit[elem[0]];
-                change = change.toFixed(2);
-            }
-            if (temp[1] > 0) {
-                changeArray.push(temp);
-            }
-        }
     }
+
+    let changeArray = cid.reverse().map(elem => {
+        let amount = 0;
+        const value = {
+            "PENNY": 0.01, "NICKEL": 0.05, "DIME": 0.10,
+            "QUARTER": 0.25, "ONE": 1.00, "FIVE": 5.00,
+            "TEN": 10.00, "TWENTY": 20.00, "ONE HUNDRED": 100.00
+        }[elem[0]];
+
+        while (change >= value && elem[1] > 0) {
+            amount += value;
+            elem[1] -= value;
+            change -= value;
+            change = Math.round(change * 100) / 100;
+        }
+
+        return amount ? [elem[0], amount] : null;
+    }).filter(elem => elem != null);
 
     if (change > 0) {
         return "Status: INSUFFICIENT_FUNDS";
-    } else {
-        return changeArray.reduce((acc, curr) => {
-            acc[curr[0]] = curr[1];
-            return acc;
-        }, { "Status": "OPEN" });
     }
+
+    if (totalCID === cash - price) {
+        return "Status: CLOSED";
+    }
+
+    return changeArray;
 }
+
 
 
 function formatChangeOutput(change) {
