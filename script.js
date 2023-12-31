@@ -69,5 +69,3 @@ function formatChangeOutput(change) {
     // Returns a string for display
 }
 
-
-// need to finish this
