@@ -28,7 +28,7 @@ input[type="number"], button {
     margin: 10px 0;
     border: 1px solid #151515;
     border-radius: 4px;
-    font-size: 1.5em; /* Larger text */
+    font-size: 1.5em; /* Larger than normal text */
 }
 
 /* Unique styling for the change drawer */
@@ -42,7 +42,7 @@ input[type="number"], button {
     color: #333;
 }
 
-/* Styling for the button to make it more prominent */
+/* Styling for the button to make it more prominent, zapboy216 tough one button colors lol */
 #purchase-btn {
     background-color: #4CAF50;
     color: white;
