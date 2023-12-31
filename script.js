@@ -22,7 +22,7 @@ function calculateChange(price, cash, cid) {
     let totalCID = cid.reduce((sum, curr) => sum + curr[1], 0);
     
     if (totalCID < change) {
-        return "Status: INSUFFICIENT_FUNDS";
+        return " INSUFFICIENT_FUNDS";
     }
 
     let changeArray = cid.reverse().map(elem => {
