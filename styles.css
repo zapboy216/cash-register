@@ -25,7 +25,7 @@ input[type="number"], button {
     width: 80%;
     padding: 20px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #151515;
     border-radius: 4px;
     font-size: 1.2em; /* Larger text */
 }
