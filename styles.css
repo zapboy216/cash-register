@@ -15,7 +15,7 @@ body, html {
     max-width: 700px;
     padding: 20px;
     border: 1px solid #151515;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 8px;
     text-align: center;
