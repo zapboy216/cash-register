@@ -50,7 +50,7 @@ input[type="number"], button {
     cursor: pointer;
 }
 
-/* Change button hover effect */
+/* Change button hover effect adjust for base color zap */
 #purchase-btn:hover {
     background-color: #45a049;
 }
