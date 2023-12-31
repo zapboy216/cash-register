@@ -65,7 +65,20 @@ function calculateChange(price, cash, cid) {
 
 
 function formatChangeOutput(change) {
-    // Formats the output based on the change object or status string
-    // Returns a string for display
+    if (typeof change === 'string') {
+        // If the change is a string, it's a status message
+        return change;
+    }
+
+    let formattedChange = change.Status + ' ';
+    delete change.Status; // Remove the status from the change object
+
+    for (const [denomination, amount] of Object.entries(change)) {
+        // Format each denomination and its amount
+        formattedChange += `${denomination}: $${amount.toFixed(2)} `;
+    }
+
+    return formattedChange.trim();
 }
+
 
